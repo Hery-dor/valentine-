@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine Special</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: darkmagenta;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    #buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .button {
+      padding: 20px 40px;
+      font-size: 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yes-button {
+      background-color: green;
+    }
+
+    #no-button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <h1>Will You Be My Girlfriend forever? 💖</h1>
+  <div id="buttons">
+    <button id="yes-button" class="button">Yes</button>
+    <button id="no-button" class="button">No</button>
+  </div>
+
+  <script>
+    const yesButton = document.getElementById('yes-button');
+    const noButton = document.getElementById('no-button');
+
+    noButton.addEventListener('click', () => {
+      const currentNoSize = parseFloat(window.getComputedStyle(noButton).fontSize);
+      const currentYesSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+
+      // Shrink No button size, grow Yes button size
+      noButton.style.fontSize = Math.max(5, currentNoSize - 2) + 'px';
+      yesButton.style.fontSize = Math.min(window.innerWidth, currentYesSize + 10) + 'px';
+
+      // If Yes button becomes too big, fill the screen
+      if (currentYesSize > 300) {
+        document.body.innerHTML = "<h1>why yu no choose? mi sad now</h1>";
+      }
+    });
+
+    yesButton.addEventListener('click', () => {
+      document.body.innerHTML = "<h1>i love you, muach 💖</h1>";
+    });
+  </script>
+</body>
+</html>

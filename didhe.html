@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Lovers Hub</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #0b3d91;
+      color: white;
+      text-align: center;
+      padding: 50px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    button {
+      background-color: #f39c12;
+      color: black;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    button:hover {
+      background-color: #e67e22;
+    }
+
+    #question-container {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: none;
+    }
+
+    #star-icon {
+      margin-top: 30px;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616490.png') no-repeat center;
+      background-size: contain;
+      display: inline-block;
+    }
+
+    #info-container {
+      margin-top: 20px;
+      display: none;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Physics Lovers Hub</h1>
+  <p>Dive into the world of mind-bending physics!</p>
+  <button onclick="generateQuestion()">Want a Question for You?</button>
+
+  <div id="question-container"></div>
+
+  <div id="star-icon" onclick="showStarInfo()"></div>
+
+  <div id="info-container">
+    <h2>Star Information</h2>
+    <p>Name: Sirius</p>
+    <p>Distance from Earth: 8.6 light-years</p>
+    <p>Type: Main Sequence Star (Spectral Type A1V)</p>
+    <p>Description: Sirius, also known as the Dog Star, is the brightest star in Earth's night sky. It is part of the Canis Major constellation.</p>
+  </div>
+
+  <script>
+    const questions = [
+      "If a particle travels at 99.99% of the speed of light for 1 hour, how much time has passed for an observer at rest?",
+      "A satellite orbits Earth at a height of 500 km. Calculate its orbital velocity assuming a perfectly circular orbit.",
+      "A beam of light enters a medium with a refractive index of 2.0 at a 30-degree angle. What is the angle of refraction?",
+      "How much energy is released when 1 kg of mass is completely converted to energy? (E = mc²)",
+      "If a rocket expels gas at 3000 m/s in the vacuum of space and has a mass of 10,000 kg, what is the initial acceleration when the thrust is 200,000 N?",
+      "A pendulum swings with a period of 2 seconds on Earth. What would its period be on Mars, where gravity is about 3.71 m/s²?",
+      "An electric circuit contains a 12V battery and two resistors of 4 ohms and 8 ohms connected in series. Calculate the current flowing through the circuit."
+    ];
+
+    function generateQuestion() {
+      const randomIndex = Math.floor(Math.random() * questions.length);
+      const questionContainer = document.getElementById('question-container');
+      questionContainer.textContent = questions[randomIndex];
+      questionContainer.style.display = 'block';
+    }
+
+    function showStarInfo() {
+      const infoContainer = document.getElementById('info-container');
+      infoContainer.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
